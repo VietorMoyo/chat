@@ -1,0 +1,23 @@
+# Miscellany
+.DS_Store
+.apple
+.idea
+*.iml
+
+# Root
+.artifacts/
+db/data/
+
+# Backend (Server)
+server/node_modules/
+server/.env
+server/google-credentials.json
+
+# Frontend (Client)
+client/.dart_tool/
+client/.flutter-plugins
+client/.flutter-plugins-dependencies
+client/.packages
+client/build/
+client/.metadata
+client/pubspec.lock
