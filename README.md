@@ -19,37 +19,53 @@ A "WeChat-style" real-time messaging application with on-the-fly server-side tra
 - **Frontend**: Flutter (Provider for State Management)
 - **Backend**: Node.js, Express, Socket.io
 - **Database**: PostgreSQL (Dockerized)
-- **Translation**: MyMemory API
+- **Translation**: MyMemory API (Free)
 
 ## 📋 Prerequisites
 
 - [Flutter SDK](https://docs.flutter.dev/get-started/install)
-- [Node.js](https://nodejs.org/)
+- [Node.js](https://nodejs.org/) (v16+)
 - [Docker](https://www.docker.com/) & [Docker Compose](https://docs.docker.com/compose/)
 
 ## ⚙️ Setup Instructions
 
 ### 1. Database (Docker)
-Start the PostgreSQL container:
+Start the PostgreSQL container from the root directory:
 ```bash
 docker-compose up -d
 ```
+*Note: This automatically initializes the schema and seeds default users (User A & User B).*
 
 ### 2. Backend Server
-Navigate to the server directory and start the Node.js server:
-```bash
-cd server
-npm install
-npm start
-```
+1. Navigate to the server directory:
+   ```bash
+   cd server
+   ```
+2. Create a `.env` file in the `server/` folder:
+   ```env
+   PORT=3000
+   DATABASE_URL=postgresql://chat_user:chat_password@localhost:5432/chat_db
+   ```
+3. Install dependencies and start the server:
+   ```bash
+   npm install
+   npm run dev
+   ```
 
 ### 3. Flutter Client
-Navigate to the client directory and run the app:
-```bash
-cd client
-flutter pub get
-flutter run
-```
+1. Navigate to the client directory:
+   ```bash
+   cd client
+   ```
+2. Install dependencies:
+   ```bash
+   flutter pub get
+   ```
+3. Run the app:
+   ```bash
+   flutter run
+   ```
+   *Note: Ensure the backend URL in `lib/main.dart` matches your server address (default: `http://localhost:3000`).*
 
 ## 🧪 Testing Two-Way Communication
 

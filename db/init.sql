@@ -24,3 +24,10 @@ CREATE TABLE IF NOT EXISTS messages (
 -- Add indexes to improve query performance on foreign keys
 CREATE INDEX IF NOT EXISTS idx_messages_sender_id ON messages(sender_id);
 CREATE INDEX IF NOT EXISTS idx_messages_receiver_id ON messages(receiver_id);
+
+-- Seed users used in the Flutter app
+INSERT INTO users (id, username, preferred_language)
+VALUES
+    ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'User A', 'en'),
+    ('b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a22', 'User B', 'en')
+ON CONFLICT (id) DO NOTHING;
